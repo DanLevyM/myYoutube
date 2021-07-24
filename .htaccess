@@ -1,0 +1,34 @@
+php_flag display_errors no
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# USERS
+RewriteRule ^user$                                      api/controller/users.php [L]
+RewriteRule ^users$                                     api/controller/users.php [L]
+RewriteRule ^user/([0-9]+)$                             api/controller/users.php?id=$1 [L]
+RewriteRule ^users/page$                                api/controller/users.php [L]
+
+# SESSIONS
+RewriteRule ^auth$                                      api/controller/sessions.php [L]
+RewriteRule ^sessions/([0-9]+)$                         api/controller/sessions.php?sessionid=$1 [L]
+
+# VIDEOS
+# Attributes
+RewriteRule ^users/([0-9]+)/videos/([0-9]+)/attributes$ api/controller/videos.php?userid=$1&videoid=$2&attributes=true [L]
+# Video itself
+RewriteRule ^users/([0-9]+)/videos/([0-9]+)$            api/controller/videos.php?userid=$1&videoid=$2 [L]
+# Image request for post
+RewriteRule ^users/([0-9]+)/videos$                     api/controller/videos.php?userid=$1 [L]
+# Get all videos
+RewriteRule ^videos$                                    api/controller/videos.php [L]
+# Get videos per user
+RewriteRule ^user/([0-9]+)/videos$                      api/controller/videos.php?userid=$1 [L]
+
+# COMMENTS
+RewriteRule ^video/([0-9]+)/comment$                    api/controller/comments.php?id=$1 [L]
+RewriteRule ^video/([0-9]+)/comments$                   api/controller/comments.php?id=$1 [L]
+
+ErrorDocument 404                                       /api_rest/errors/error.php

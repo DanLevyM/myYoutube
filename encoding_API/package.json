@@ -1,0 +1,29 @@
+{
+  "name": "youtube_api",
+  "version": "1.0.0",
+  "description": "An RESTFUL API for a Youtube kind website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@rendu-git.etna-alternance.net:module-7953/activity-43939/group-870415.git"
+  },
+  "author": "Andi MANIETA, Dan LEVY, Jeremy LAO",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "eslint": "^7.28.0",
+    "express": "^4.17.1",
+    "ffmpeg": "0.0.4",
+    "fs": "0.0.1-security",
+    "helmet": "^4.6.0",
+    "joi": "^13.1.0",
+    "mongodb": "^3.6.9",
+    "mongoose": "^5.0.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
+    "shelljs": "^0.8.4"
+  }
+}
